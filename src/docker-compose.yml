@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+
+  db:
+    image: 'postgres:latest'
+    restart: always
+    environment:
+      - POSTGRES_USER=root 
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=rubify
+    ports:
+      - '5342:5432'
