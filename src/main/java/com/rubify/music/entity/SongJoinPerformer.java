@@ -19,5 +19,5 @@ public class SongJoinPerformer implements Serializable {
     private static final long serialVersionUID = 7485937702699604387L;
     private @Id @GeneratedValue @Column(name = "id") Integer id;
     private @ManyToOne @JoinColumn(name = "song_id") SongEntity song;
-    private @ManyToOne @JoinColumn(name = "performer_id") UserPerformerEntity performer;
+    private @ManyToOne @JoinColumn(name = "performer_id") UserEntity performer;
 }

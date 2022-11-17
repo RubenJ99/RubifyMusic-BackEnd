@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 import java.io.Serializable;
 
 @Table(name = "liked_song")
@@ -20,7 +19,7 @@ public class LikedSongEntity implements Serializable {
 
     private @Id @GeneratedValue @Column(name = "id") Integer id;
 
-    private @ManyToOne @JoinColumn(name = "user_id") UserDefaultEntity user;
+    private @ManyToOne @JoinColumn(name = "user_id") UserEntity user;
     private @ManyToOne @JoinColumn(name = "song_id") SongEntity song;
 
 }
