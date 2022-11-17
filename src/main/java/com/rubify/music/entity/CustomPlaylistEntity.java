@@ -3,7 +3,6 @@ package com.rubify.music.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 import java.io.Serializable;
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class CustomPlaylistEntity implements Serializable {
     private @Column(name = "name") String name;
 
     private @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id") UserDefaultEntity userDefault;
+    @JoinColumn(name = "user_id") UserEntity userDefault;
 
     private @OneToMany(mappedBy = "playlist") List<PlaylistJoinSongEntity> playlists;
 }
