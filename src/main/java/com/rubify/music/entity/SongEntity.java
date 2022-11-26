@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@Table(name = "song")
+@Table(name = "song", schema = "public")
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor

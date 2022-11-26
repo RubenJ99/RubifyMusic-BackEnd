@@ -32,7 +32,7 @@ public class UserEntity implements Serializable, UserDetails {
 
     private @OneToMany(mappedBy = "performer") List<SongJoinPerformer> performers;
 
-    private @OneToOne(fetch = FetchType.LAZY)
+    private @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "auth_id") Authority authority;
 
     @Override

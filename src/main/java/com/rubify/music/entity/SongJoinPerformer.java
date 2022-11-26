@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Table(name = "song_join_performer")
+@Table(name = "song_join_performer" , schema = "public")
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor

@@ -2,12 +2,13 @@ package com.rubify.music.entity;
 
 import lombok.*;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+import org.hibernate.annotations.Fetch;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "auth")
+@Table(name = "auth", schema = "public")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

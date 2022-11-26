@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 
-@Table(name = "custom_playlist")
+@Table(name = "custom_playlist", schema = "public")
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor

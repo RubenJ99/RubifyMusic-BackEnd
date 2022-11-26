@@ -1,15 +1,21 @@
 package com.rubify.music.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.rubify.music.entity.Authority;
 import lombok.*;
+
+import java.io.Serializable;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserRegisterDTO {
-    private Integer id;
+@JsonSerialize
+public class UserRegisterDTO implements Serializable {
+
+    private static final long serialVersionUID = -792816251916237766L;
+
     private String email;
     private String password;
     private String name;

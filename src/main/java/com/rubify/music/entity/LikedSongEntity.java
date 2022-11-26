@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Table(name = "liked_song")
+@Table(name = "liked_song", schema = "public")
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
