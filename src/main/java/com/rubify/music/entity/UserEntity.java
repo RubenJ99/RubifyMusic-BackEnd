@@ -17,6 +17,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class UserEntity implements Serializable, UserDetails {
     private static final long serialVersionUID = 2881016933523907242L;
     private @Id @GeneratedValue Integer id;

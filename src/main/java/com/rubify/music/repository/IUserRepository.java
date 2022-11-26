@@ -1,5 +1,6 @@
 package com.rubify.music.repository;
 
+import com.rubify.music.dto.UserRegisterDTO;
 import com.rubify.music.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
