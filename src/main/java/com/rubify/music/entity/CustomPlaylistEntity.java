@@ -11,7 +11,8 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 public class CustomPlaylistEntity implements Serializable {
     private static final long serialVersionUID = -3228416509414743702L;
     private @Id @GeneratedValue Integer id;

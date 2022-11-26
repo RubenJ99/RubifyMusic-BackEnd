@@ -11,7 +11,8 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 public class SongCategoryEntity implements Serializable {
 
     private static final long serialVersionUID = 1896356612038137251L;
