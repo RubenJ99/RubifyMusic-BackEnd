@@ -1,18 +1,16 @@
 package com.rubify.music.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Table(name = "song_join_performer")
+@Table(name = "song_join_performer" , schema = "public")
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder
 public class SongJoinPerformer implements Serializable {
 

@@ -13,11 +13,11 @@ import java.util.Collection;
 import java.util.List;
 
 
-@Table(name = "user")
+@Table(name = "user", schema = "public")
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Builder
 public class UserEntity implements Serializable, UserDetails {
     private static final long serialVersionUID = 2881016933523907242L;
     private @Id @GeneratedValue Integer id;
@@ -32,7 +32,7 @@ public class UserEntity implements Serializable, UserDetails {
 
     private @OneToMany(mappedBy = "performer") List<SongJoinPerformer> performers;
 
-    private @OneToOne(fetch = FetchType.LAZY)
+    private @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "auth_id") Authority authority;
 
     @Override
@@ -44,12 +44,12 @@ public class UserEntity implements Serializable, UserDetails {
 
     @Override
     public String getUsername() {
-        return this.getEmail();
+        return this.email;
     }
 
     @Override
     public String getPassword(){
-        return this.getPassword();
+        return this.password;
     }
 
     @Override
@@ -70,5 +70,89 @@ public class UserEntity implements Serializable, UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getIban() {
+        return iban;
+    }
+
+    public void setIban(String iban) {
+        this.iban = iban;
+    }
+
+    public String getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(String expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
+    public String getNameOnCard() {
+        return nameOnCard;
+    }
+
+    public void setNameOnCard(String nameOnCard) {
+        this.nameOnCard = nameOnCard;
+    }
+
+    public byte[] getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(byte[] profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    public List<SongJoinPerformer> getPerformers() {
+        return performers;
+    }
+
+    public void setPerformers(List<SongJoinPerformer> performers) {
+        this.performers = performers;
+    }
+
+    public Authority getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(Authority authority) {
+        this.authority = authority;
     }
 }

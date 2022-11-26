@@ -18,6 +18,7 @@ public class Seeds {
     CommandLineRunner initDb(ISongRepository repo){
         return args -> {
           log.info("Pre-generating song data... ");
+          log.info("APPLICATION STARTED CORRECTLY");
         };
     }
 }
