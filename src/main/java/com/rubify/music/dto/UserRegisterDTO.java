@@ -24,5 +24,5 @@ public class UserRegisterDTO implements Serializable {
     private String expirationDate;
     private String nameOnCard;
     private byte[] profilePicture;
-    private Authority authority;
+    private Integer authority;
 }
