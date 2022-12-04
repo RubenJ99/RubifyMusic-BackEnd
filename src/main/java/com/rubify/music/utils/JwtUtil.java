@@ -1,5 +1,9 @@
 package com.rubify.music.utils;
 
+import com.rubify.music.dto.UserDTO;
+import com.rubify.music.entity.UserEntity;
+import com.rubify.music.repository.IUserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import io.jsonwebtoken.Claims;
@@ -14,11 +18,16 @@ import java.util.Map;
 import java.util.function.Function;
 
 import java.io.Serializable;
+import java.util.stream.Collectors;
+
 @Service
 public class JwtUtil implements Serializable {
     private static final long serialVersionUID = 8489282081310633312L;
 
     public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
+
+    @Autowired
+    private IUserRepository userRepository;
 
     @Value("${jwt.secret}")
     private String secret;
@@ -49,6 +58,10 @@ public class JwtUtil implements Serializable {
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
+        UserEntity userEntity = userRepository.findByEmail(userDetails.getUsername()).orElseThrow();
+        claims.put("authorities", userDetails.getAuthorities().stream()
+                .map(auth -> auth.getAuthority()).collect(Collectors.toList()));
+        claims.put("id",userEntity.getId());
         return doGenerateToken(claims, userDetails.getUsername());
     }
 
