@@ -45,6 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
       }).and();
       http.authorizeRequests()
               .antMatchers("/api/auth/**").permitAll() //Remove token auth from these exposed api endpoins
+              .antMatchers("/api/v1/**").permitAll()
               .anyRequest().authenticated();
       http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
     }
