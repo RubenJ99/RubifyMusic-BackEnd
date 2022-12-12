@@ -5,11 +5,12 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Table(name = "song_join_cat")
+@Table(name = "song_join_cat", schema = "public")
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder
 public class SongJoinCatEntity implements Serializable {
 

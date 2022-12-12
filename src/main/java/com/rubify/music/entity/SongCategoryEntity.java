@@ -7,11 +7,12 @@ import java.io.Serializable;
 import java.util.List;
 
 
-@Table(name = "song_category")
+@Table(name = "song_category", schema = "public")
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 public class SongCategoryEntity implements Serializable {
 
     private static final long serialVersionUID = 1896356612038137251L;
