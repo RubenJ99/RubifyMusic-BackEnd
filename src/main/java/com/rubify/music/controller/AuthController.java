@@ -57,7 +57,7 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
-    @PostMapping("/register") //TODO CAMBIAR TABLA AUTH ROLES
+    @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody final UserRegisterDTO userDTO){
         final UserEntity newUser = userRepository.findById(userCustomRepository.saveUser(userDTO)).orElseThrow();
         return ResponseEntity.ok().body(mapper.toModel(newUser));
