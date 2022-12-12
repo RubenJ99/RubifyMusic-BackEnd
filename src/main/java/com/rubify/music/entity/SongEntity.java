@@ -21,8 +21,8 @@ public class SongEntity implements Serializable {
     private @Column(name = "song_name") String songName;
     private @Column(name= "release_date") String releaseDate;
     private @Column(name = "explicit_content") boolean  explicitContent;
-    private @Lob @Type(type = "org.hibernate.type.BinaryType") @Column(name = "icon") byte[] icon;
-    private @Lob @Type(type = "org.hibernate.type.BinaryType") @Column(name = "audio") byte[] audio;
+    private @Column(name = "icon_file") String iconFile;
+    private @Column(name = "audio_file") String audioFile;
 
     private @OneToMany(mappedBy = "song") List<SongJoinCatEntity> categories;
     private @OneToMany(mappedBy = "song") List<PlaylistJoinSongEntity> playlists;

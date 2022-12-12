@@ -32,14 +32,11 @@ public class UserEntity implements Serializable, UserDetails {
 
     private @OneToMany(mappedBy = "performer") List<SongJoinPerformer> performers;
 
-    private @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "auth_id") Authority authority;
+    private @Column(name= "role") String authority;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> roles = new ArrayList<>();
-        roles.add(new Authority("ROLE_DEFAULT"));
-        return roles;
+      return null;
     }
 
     @Override
@@ -148,11 +145,11 @@ public class UserEntity implements Serializable, UserDetails {
         this.performers = performers;
     }
 
-    public Authority getAuthority() {
+    public String getAuthority() {
         return authority;
     }
 
-    public void setAuthority(Authority authority) {
+    public void setAuthority(String authority) {
         this.authority = authority;
     }
 }

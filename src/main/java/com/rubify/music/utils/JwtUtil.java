@@ -2,6 +2,7 @@ package com.rubify.music.utils;
 
 import com.rubify.music.dto.UserDTO;
 import com.rubify.music.entity.UserEntity;
+import com.rubify.music.repository.IUserCustomRepository;
 import com.rubify.music.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,6 +29,8 @@ public class JwtUtil implements Serializable {
 
     @Autowired
     private IUserRepository userRepository;
+    @Autowired
+    private IUserCustomRepository userCustomRepository;
 
     @Value("${jwt.secret}")
     private String secret;
@@ -59,8 +62,8 @@ public class JwtUtil implements Serializable {
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
         UserEntity userEntity = userRepository.findByEmail(userDetails.getUsername()).orElseThrow();
-        claims.put("authorities", userDetails.getAuthorities().stream()
-                .map(auth -> auth.getAuthority()).collect(Collectors.toList()));
+
+        claims.put("authorities", userEntity.getAuthority());
         claims.put("id",userEntity.getId());
         return doGenerateToken(claims, userDetails.getUsername());
     }

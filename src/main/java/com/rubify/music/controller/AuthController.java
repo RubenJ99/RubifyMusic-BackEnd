@@ -10,6 +10,7 @@ import com.rubify.music.repository.IUserRepository;
 import com.rubify.music.utils.JwtUtil;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,7 +51,6 @@ public class AuthController {
                     );
 
             UserEntity user = (UserEntity) auth.getPrincipal();
-
             return ResponseEntity.ok().header(HttpHeaders.AUTHORIZATION,jwtUtil.generateToken(user))
                     .body(mapper.toModel(user));
         }catch (BadCredentialsException ex){
