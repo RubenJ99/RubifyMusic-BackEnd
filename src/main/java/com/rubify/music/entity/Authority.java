@@ -7,12 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "auth", schema = "public")
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
+/*
 public class Authority implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,3 +18,4 @@ public class Authority implements GrantedAuthority {
         this.authority = authority;
     }
 }
+*/

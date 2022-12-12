@@ -1,7 +1,6 @@
 package com.rubify.music.dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.rubify.music.entity.Authority;
 import lombok.*;
 
 import java.io.Serializable;
@@ -24,5 +23,5 @@ public class UserRegisterDTO implements Serializable {
     private String expirationDate;
     private String nameOnCard;
     private byte[] profilePicture;
-    private Integer authority;
+    private String authority;
 }
